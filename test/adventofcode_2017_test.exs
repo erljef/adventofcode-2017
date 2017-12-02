@@ -16,4 +16,20 @@ defmodule Adventofcode2017Test do
     assert Day1.solve_captcha_2("123123") == 12
     assert Day1.solve_captcha_2("12131415") == 4
   end
+
+  test "calculates day 2 checksum" do
+    assert Day2.checksum("""
+5 1 9 5
+7 5 3
+2 4 6 8
+""") == 18
+  end
+
+  test "calculates day 2 evenly divisable values" do
+    assert Day2.evenly_divisable("""
+5 9 2 8
+9 4 7 3
+3 8 6 5
+""") == 9
+  end
 end
