@@ -32,4 +32,15 @@ defmodule Adventofcode2017Test do
 3 8 6 5
 """) == 9
   end
+
+  test "calculates day 3 distance" do
+    assert Day3.distance(1) == 0
+    assert Day3.distance(12) == 3
+    assert Day3.distance(23) == 2
+    assert Day3.distance(1024) == 31
+  end
+
+  test "calculates square spiral of sums of neighbours" do
+    assert Day3.spiral_values |> Stream.take(10) |> Enum.to_list == [1, 1, 2, 4, 5, 10, 11, 23, 25, 26]
+  end
 end
