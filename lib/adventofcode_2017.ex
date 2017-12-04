@@ -10,6 +10,8 @@ defmodule Adventofcode2017 do
     IO.puts(~s"Day 2: #{first}, #{second}")
     {first, second} = day3()
     IO.puts(~s"Day 3: #{first}, #{second}")
+    {first, second} = day4()
+    IO.puts(~s"Day 4: #{first}, #{second}")
   end
 
   @doc """
@@ -66,5 +68,9 @@ defmodule Adventofcode2017 do
   def day3 do
     value = Day3.spiral_values |> Stream.drop_while(fn x -> x <= 368078 end) |> Stream.take(1) |> Enum.to_list |> hd
     {~s"Distance 1: #{Day3.distance(368078)}", ~s"Value after 368078: #{value}"}
+  end
+
+  def day4 do
+    {~s"Valid without duplicate: #{Day4.validate_file("day4_input.txt", &Day4.validate_no_duplicates/1)}", ~s"Valid without anagrams: #{Day4.validate_file("day4_input.txt", &Day4.validate_no_anagrams/1)}"}
   end
 end
