@@ -107,7 +107,7 @@ defmodule Adventofcode2017 do
   def day5 do
     input = Day5.read_file("day5_input.txt")
     {
-      ~s"Steps: #{Day5.traverse_list(input)}",
+      ~s"Steps: #{Day5.traverse(input)}",
     }
   end
 end

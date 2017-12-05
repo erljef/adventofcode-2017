@@ -4,19 +4,25 @@ defmodule Day5 do
     |> Stream.map(&String.trim/1)
     |> Stream.map(&String.to_integer/1)
     |> Enum.to_list
+    |> to_map
   end
 
-  def traverse_list(input, current \\ 0, steps \\ 0)
-  def traverse_list(input, current, steps) when current >= length(input) do
-    steps
+  def to_map(list) do
+    list
+    |> Enum.with_index
+    |> Enum.into(%{}, fn {v, k} -> {k, v} end)
   end
-  def traverse_list(input, current, steps) do
-    step = Enum.at(input, current)
-    next = step + current
-    if step >= 3 do
-      traverse_list(List.replace_at(input, current, step - 1), next, steps + 1)
-    else
-      traverse_list(List.replace_at(input, current, step + 1), next, steps + 1)
+
+  def traverse(input, current \\ 0, steps \\ 0)
+  def traverse(input, current, steps) do
+    case Map.fetch(input, current) do
+      {:ok, step} -> traverse(input, current, steps, step)
+      :error -> steps
     end
+  end
+  def traverse(input, current, steps, step) do
+    next = step + current
+    modify = fn x -> if x >= 3, do: x - 1, else: x + 1 end
+    traverse(Map.put(input, current, modify.(step)), next, steps + 1)
   end
 end

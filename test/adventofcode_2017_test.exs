@@ -59,7 +59,7 @@ defmodule Adventofcode2017Test do
   end
 
   test "counts the number of steps to exit the list" do
-    list = "0 3 0 1 -3" |> String.split |> Enum.map(&String.to_integer/1)
-    assert Day5.traverse_list(list) == 10
+    map = "0 3 0 1 -3" |> String.split |> Enum.map(&String.to_integer/1) |> Day5.to_map
+    assert Day5.traverse(map) == 10
   end
 end
