@@ -57,4 +57,9 @@ defmodule Adventofcode2017Test do
     assert Day4.validate_no_anagrams(String.split("iiii oiii ooii oooi oooo"))
     refute Day4.validate_no_anagrams(String.split("oiii ioii iioi iiio"))
   end
+
+  test "counts the number of steps to exit the list" do
+    list = "0 3 0 1 -3" |> String.split |> Enum.map(&String.to_integer/1)
+    assert Day5.traverse_list(list) == 10
+  end
 end
