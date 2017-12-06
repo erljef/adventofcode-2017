@@ -14,6 +14,8 @@ defmodule Adventofcode2017 do
     IO.puts(~s"Day 4: #{first}, #{second}")
     {first} = day5()
     IO.puts(~s"Day 5: #{first}")
+    {first, second} = day6()
+    IO.puts(~s"Day 6: #{first}, #{second}")
   end
 
   @doc """
@@ -108,6 +110,14 @@ defmodule Adventofcode2017 do
     input = Day5.read_file("day5_input.txt")
     {
       ~s"Steps: #{Day5.traverse(input)}",
+    }
+  end
+
+  def day6 do
+    input = Day6.read_file("day6_input.txt")
+    {
+      ~s"Redistributions: #{Day6.redistributions(input)}",
+      ~s"Cycles: #{Day6.cycles(input)}"
     }
   end
 end

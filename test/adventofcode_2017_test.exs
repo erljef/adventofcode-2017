@@ -62,4 +62,14 @@ defmodule Adventofcode2017Test do
     map = "0 3 0 1 -3" |> String.split |> Enum.map(&String.to_integer/1) |> Day5.to_map
     assert Day5.traverse(map) == 10
   end
+
+  test "counts the number of redistribution cycles for day 6" do
+    input = String.split("0 2 7 0") |> Enum.map(&String.to_integer/1)
+    assert Day6.redistributions(input) == 5
+  end
+
+  test "counts the number of cycles in the infinite loop for day 6" do
+    input = String.split("0 2 7 0") |> Enum.map(&String.to_integer/1)
+    assert Day6.cycles(input) == 4
+  end
 end
