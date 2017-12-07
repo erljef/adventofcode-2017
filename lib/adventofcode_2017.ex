@@ -16,6 +16,8 @@ defmodule Adventofcode2017 do
     IO.puts(~s"Day 5: #{first}")
     {first, second} = day6()
     IO.puts(~s"Day 6: #{first}, #{second}")
+    {first, second} = day7()
+    IO.puts(~s"Day 7: #{first}, #{second}")
   end
 
   @doc """
@@ -118,6 +120,16 @@ defmodule Adventofcode2017 do
     {
       ~s"Redistributions: #{Day6.redistributions(input)}",
       ~s"Cycles: #{Day6.cycles(input)}"
+    }
+  end
+
+  def day7 do
+    input = Day7.read_file("day7_input.txt")
+    root = Day7.find_root(input)[:name]
+    correct_weight = Day7.find_unbalanced(input)
+    {
+      ~s"Parent: #{root}",
+      ~s"Weight: #{correct_weight}"
     }
   end
 end

@@ -72,4 +72,47 @@ defmodule Adventofcode2017Test do
     input = String.split("0 2 7 0") |> Enum.map(&String.to_integer/1)
     assert Day6.cycles(input) == 4
   end
+
+  test "determine the root of the day 7 tower" do
+    input = """
+        pbga (66)
+        xhth (57)
+        ebii (61)
+        havc (66)
+        ktlj (57)
+        fwft (72) -> ktlj, cntj, xhth
+        qoyq (66)
+        padx (45) -> pbga, havc, qoyq
+        tknk (41) -> ugml, padx, fwft
+        jptl (61)
+        ugml (68) -> gyxo, ebii, jptl
+        gyxo (61)
+        cntj (57)
+    """
+    |> String.split("\n")
+    |> Day7.parse_input
+
+    assert Day7.find_root(input)
+  end
+
+  test "determine the correct weight of the disc with faulty weight" do
+    input = """
+                pbga (66)
+                xhth (57)
+                ebii (61)
+                havc (66)
+                ktlj (57)
+                fwft (72) -> ktlj, cntj, xhth
+                qoyq (66)
+                padx (45) -> pbga, havc, qoyq
+                tknk (41) -> ugml, padx, fwft
+                jptl (61)
+                ugml (68) -> gyxo, ebii, jptl
+                gyxo (61)
+                cntj (57)
+            """
+            |> String.split("\n")
+            |> Day7.parse_input
+    assert Day7.find_unbalanced(input) == 60
+  end
 end
