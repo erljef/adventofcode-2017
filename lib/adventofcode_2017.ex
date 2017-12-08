@@ -132,4 +132,13 @@ defmodule Adventofcode2017 do
       ~s"Weight: #{correct_weight}"
     }
   end
+
+  def day8 do
+    input = Day8.read_file("day8_input.txt")
+    registers = Day8.process(input)
+    {
+      ~s"Max: #{registers |> Day8.max_value}",
+      ~s"Highest: #{registers |> Day8.highest_value}"
+    }
+  end
 end

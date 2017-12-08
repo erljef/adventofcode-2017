@@ -115,4 +115,30 @@ defmodule Adventofcode2017Test do
             |> Day7.parse_input
     assert Day7.find_unbalanced(input) == 60
   end
+
+  test "calculate the largest register after processing instructions" do
+    input = """
+              b inc 5 if a > 1
+              a inc 1 if b < 5
+              c dec -10 if a >= 1
+              c inc -20 if c == 10
+            """
+            |> String.split("\n")
+            |> Day8.parse_input
+
+    assert input |> Day8.process |> Day8.max_value == 1
+  end
+
+  test "calculate the largest register during processing instructions" do
+    input = """
+              b inc 5 if a > 1
+              a inc 1 if b < 5
+              c dec -10 if a >= 1
+              c inc -20 if c == 10
+            """
+            |> String.split("\n")
+            |> Day8.parse_input
+
+    assert input |> Day8.process |> Day8.highest_value == 10
+  end
 end
