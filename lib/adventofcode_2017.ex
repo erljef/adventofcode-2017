@@ -4,20 +4,9 @@ defmodule Adventofcode2017 do
   """
 
   def solutions do
-    {first, second} = day1()
-    IO.puts(~s"Day 1: #{first}, #{second}")
-    {first, second} = day2()
-    IO.puts(~s"Day 2: #{first}, #{second}")
-    {first, second} = day3()
-    IO.puts(~s"Day 3: #{first}, #{second}")
-    {first, second} = day4()
-    IO.puts(~s"Day 4: #{first}, #{second}")
-    {first} = day5()
-    IO.puts(~s"Day 5: #{first}")
-    {first, second} = day6()
-    IO.puts(~s"Day 6: #{first}, #{second}")
-    {first, second} = day7()
-    IO.puts(~s"Day 7: #{first}, #{second}")
+    [day1(), day2(), day3(), day4(), day5(), day6(), day7(), day8(), day9()]
+    |> Enum.with_index()
+    |> Enum.each(fn {{first, second}, day} -> IO.puts(~s"Day #{day}: #{first}, #{second}") end)
   end
 
   @doc """
@@ -139,6 +128,14 @@ defmodule Adventofcode2017 do
     {
       ~s"Max: #{registers |> Day8.max_value}",
       ~s"Highest: #{registers |> Day8.highest_value}"
+    }
+  end
+
+  def day9 do
+    input = Day9.read_file("day9_input.txt")
+    {
+      ~s"Score: #{Day9.score(input)}",
+      ~s"Garbage: #{Day9.garbage(input)}"
     }
   end
 end
