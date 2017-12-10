@@ -162,4 +162,11 @@ defmodule Adventofcode2017Test do
     assert Day9.garbage("<!!!>>") == 0
     assert Day9.garbage("<{o\"i!a,<{i<a>") == 10
   end
+
+  test "process the list for day 10" do
+    input = 0..4 |> Enum.to_list
+    lengths = "3,4,1,5" |> String.split(",") |> Enum.map(&String.to_integer/1)
+    assert Day10.process(input, lengths) == [3, 4, 2, 1, 0]
+    assert Day10.hash(input, lengths) == 12
+  end
 end

@@ -4,7 +4,7 @@ defmodule Adventofcode2017 do
   """
 
   def solutions do
-    [day1(), day2(), day3(), day4(), day5(), day6(), day7(), day8(), day9()]
+    [day1(), day2(), day3(), day4(), day5(), day6(), day7(), day8(), day9(), day10()]
     |> Enum.with_index()
     |> Enum.each(fn {{first, second}, day} -> IO.puts(~s"Day #{day}: #{first}, #{second}") end)
   end
@@ -136,6 +136,15 @@ defmodule Adventofcode2017 do
     {
       ~s"Score: #{Day9.score(input)}",
       ~s"Garbage: #{Day9.garbage(input)}"
+    }
+  end
+
+  def day10 do
+    input = 0..255 |> Enum.to_list
+    lengths = Day10.read_file("day10_input.txt")
+    {
+      ~s"Hash: #{Day10.hash(input, lengths)}",
+      ~s""
     }
   end
 end
