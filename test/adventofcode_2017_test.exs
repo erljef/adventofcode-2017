@@ -166,7 +166,15 @@ defmodule Adventofcode2017Test do
   test "process the list for day 10" do
     input = 0..4 |> Enum.to_list
     lengths = "3,4,1,5" |> String.split(",") |> Enum.map(&String.to_integer/1)
-    assert Day10.process(input, lengths) == [3, 4, 2, 1, 0]
+    {list, _, _} = Day10.process(input, lengths)
+    assert list == [3, 4, 2, 1, 0]
     assert Day10.hash(input, lengths) == 12
+  end
+
+  test "calculates the knot hash for day 10" do
+    assert Day10.knot_hash("") == "a2582a3a0e66e6e86e3812dcb672a272"
+    assert Day10.knot_hash("AoC 2017") == "33efeb34ea91902bb2f59c9920caa6cd"
+    assert Day10.knot_hash("1,2,3") == "3efbe78a8d82f29979031a4aa0b16a9d"
+    assert Day10.knot_hash("1,2,4") == "63960835bcdc130f0b66d7ff4f6a5a8e"
   end
 end

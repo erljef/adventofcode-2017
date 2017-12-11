@@ -143,8 +143,8 @@ defmodule Adventofcode2017 do
     input = 0..255 |> Enum.to_list
     lengths = Day10.read_file("day10_input.txt")
     {
-      ~s"Hash: #{Day10.hash(input, lengths)}",
-      ~s""
+      ~s"Hash: #{Day10.hash(input, Day10.to_integers(lengths))}",
+      ~s"Knot Hash: #{Day10.knot_hash(lengths)}"
     }
   end
 end
