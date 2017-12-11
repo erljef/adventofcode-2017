@@ -4,8 +4,8 @@ defmodule Adventofcode2017 do
   """
 
   def solutions do
-    [day1(), day2(), day3(), day4(), day5(), day6(), day7(), day8(), day9(), day10()]
-    |> Enum.with_index()
+    [day1(), day2(), day3(), day4(), day5(), day6(), day7(), day8(), day9(), day10(), day11()]
+    |> Enum.with_index(1)
     |> Enum.each(fn {{first, second}, day} -> IO.puts(~s"Day #{day}: #{first}, #{second}") end)
   end
 
@@ -101,6 +101,7 @@ defmodule Adventofcode2017 do
     input = Day5.read_file("day5_input.txt")
     {
       ~s"Steps: #{Day5.traverse(input)}",
+      ""
     }
   end
 
@@ -145,6 +146,14 @@ defmodule Adventofcode2017 do
     {
       ~s"Hash: #{Day10.hash(input, Day10.to_integers(lengths))}",
       ~s"Knot Hash: #{Day10.knot_hash(lengths)}"
+    }
+  end
+
+  def day11 do
+    input = Day11.read_file("day11_input.txt") |> Day11.to_directions
+    {
+      ~s"Steps to destination: #{Day11.steps(input)}",
+      ~s"Steps to furthest point: #{Day11.furthest(input)}"
     }
   end
 end

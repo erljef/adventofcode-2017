@@ -177,4 +177,18 @@ defmodule Adventofcode2017Test do
     assert Day10.knot_hash("1,2,3") == "3efbe78a8d82f29979031a4aa0b16a9d"
     assert Day10.knot_hash("1,2,4") == "63960835bcdc130f0b66d7ff4f6a5a8e"
   end
+
+  test "calculate number of steps to reach the end of the path" do
+    assert Day11.steps(["ne", "ne", "ne"]) == 3
+    assert Day11.steps(["ne", "ne", "sw", "sw"]) == 0
+    assert Day11.steps(["ne", "ne", "s", "s"]) == 2
+    assert Day11.steps(["se", "sw", "se", "sw", "sw"]) == 3
+  end
+
+  test "calculate number of steps to reach the furthest point of the path" do
+    assert Day11.furthest(["ne", "ne", "ne"]) == 3
+    assert Day11.furthest(["ne", "ne", "sw", "sw"]) == 2
+    assert Day11.furthest(["ne", "ne", "s", "s"]) == 2
+    assert Day11.furthest(["se", "sw", "se", "sw", "sw"]) == 3
+  end
 end
