@@ -191,4 +191,30 @@ defmodule Adventofcode2017Test do
     assert Day11.furthest(["ne", "ne", "s", "s"]) == 2
     assert Day11.furthest(["se", "sw", "se", "sw", "sw"]) == 3
   end
+
+  test "determine the number of programs that contain group 0" do
+    input = """
+    0 <-> 2
+    1 <-> 1
+    2 <-> 0, 3, 4
+    3 <-> 2, 4
+    4 <-> 2, 3, 6
+    5 <-> 6
+    6 <-> 4, 5
+    """ |> String.split("\n") |> Day12.parse_input
+    assert Day12.contains_group(input, 0) == 6
+  end
+
+  test "determine the total number of groups" do
+    input = """
+    0 <-> 2
+    1 <-> 1
+    2 <-> 0, 3, 4
+    3 <-> 2, 4
+    4 <-> 2, 3, 6
+    5 <-> 6
+    6 <-> 4, 5
+    """ |> String.split("\n") |> Day12.parse_input
+    assert Day12.total_groups(input) == 2
+  end
 end
