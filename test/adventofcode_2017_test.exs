@@ -217,4 +217,26 @@ defmodule Adventofcode2017Test do
     """ |> String.split("\n") |> Day12.parse_input
     assert Day12.total_groups(input) == 2
   end
+
+  test "calculate the severity of day 13" do
+    input = """
+    0: 3
+    1: 2
+    4: 4
+    6: 4
+    """
+    |> String.split("\n") |> Day13.parse_input
+    assert Day13.severity(input) == 24
+  end
+
+  test "calculate the minimum delay to pass through without getting caught" do
+    input = """
+    0: 3
+    1: 2
+    4: 4
+    6: 4
+    """
+    |> String.split("\n") |> Day13.parse_input
+    assert Day13.delay(input) == 10
+  end
 end
