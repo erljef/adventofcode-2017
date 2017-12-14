@@ -239,4 +239,14 @@ defmodule Adventofcode2017Test do
     |> String.split("\n") |> Day13.parse_input
     assert Day13.delay(input) == 10
   end
+
+  test "calculate how many squares are used across the grid" do
+    grid = Day14.grid("flqrgnkx")
+    assert Day14.used_squares(grid) == 8108
+  end
+
+  test "calculate how many regions there are in the grid" do
+    coordinates = Day14.grid("flqrgnkx") |> Day14.coordinates
+    assert Day14.regions(coordinates) == 1242
+  end
 end

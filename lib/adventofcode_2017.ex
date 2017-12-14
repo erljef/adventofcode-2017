@@ -4,7 +4,7 @@ defmodule Adventofcode2017 do
   """
 
   def solutions do
-    [day1(), day2(), day3(), day4(), day5(), day6(), day7(), day8(), day9(), day10(), day11(), day12(), day13()]
+    [day1(), day2(), day3(), day4(), day5(), day6(), day7(), day8(), day9(), day10(), day11(), day12(), day13(), day14()]
     |> Enum.with_index(1)
     |> Enum.each(fn {{first, second}, day} -> IO.puts(~s"Day #{day}: #{first}, #{second}") end)
   end
@@ -170,6 +170,15 @@ defmodule Adventofcode2017 do
     {
       ~s"Severity: #{Day13.severity(input)}",
       ~s"Minimum delay: #{Day13.delay(input)}"
+    }
+  end
+
+  def day14 do
+    grid = Day14.grid("xlqgujun")
+    coordinates = grid |> Day14.coordinates
+    {
+      ~s"Used squares: #{Day14.used_squares(grid)}",
+      ~s"Regions: #{Day14.regions(coordinates)}"
     }
   end
 end
