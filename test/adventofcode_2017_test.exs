@@ -249,4 +249,12 @@ defmodule Adventofcode2017Test do
     coordinates = Day14.grid("flqrgnkx") |> Day14.coordinates
     assert Day14.regions(coordinates) == 1242
   end
+
+  test "find generator pairs" do
+    assert Day15.count_pairs(65, 8921) == 588
+  end
+
+  test "find generator pairs with multiples of 4 and 8" do
+    assert Day15.count_pairs_multiples(65, 8921) == 309
+  end
 end

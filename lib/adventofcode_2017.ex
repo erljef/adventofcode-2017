@@ -181,4 +181,11 @@ defmodule Adventofcode2017 do
       ~s"Regions: #{Day14.regions(coordinates)}"
     }
   end
+
+  def day15 do
+    {
+      ~s"Pairs: #{Day15.count_pairs(703, 516)}",
+      ~s"Pairs 2: #{Day15.count_pairs_multiples(703, 516)}"
+    }
+  end
 end
