@@ -4,7 +4,7 @@ defmodule Adventofcode2017 do
   """
 
   def solutions do
-    [day1(), day2(), day3(), day4(), day5(), day6(), day7(), day8(), day9(), day10(), day11(), day12(), day13(), day14()]
+    [day1(), day2(), day3(), day4(), day5(), day6(), day7(), day8(), day9(), day10(), day11(), day12(), day13(), day14(), day15(), day16()]
     |> Enum.with_index(1)
     |> Enum.each(fn {{first, second}, day} -> IO.puts(~s"Day #{day}: #{first}, #{second}") end)
   end
@@ -186,6 +186,15 @@ defmodule Adventofcode2017 do
     {
       ~s"Pairs: #{Day15.count_pairs(703, 516)}",
       ~s"Pairs 2: #{Day15.count_pairs_multiples(703, 516)}"
+    }
+  end
+
+  def day16 do
+    list = "abcdefghijklmnop" |> String.graphemes
+    instructions = Day16.read_file("day16_input.txt") |> Day16.to_instructions
+    {
+      ~s"Order: #{Day16.process_instructions(list, instructions) |> Enum.join}",
+      ~s"Order 2: #{Day16.process_instructions(list, instructions, 1000000000) |> elem(0) |> Enum.join}"
     }
   end
 end

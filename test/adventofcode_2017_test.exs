@@ -257,4 +257,16 @@ defmodule Adventofcode2017Test do
   test "find generator pairs with multiples of 4 and 8" do
     assert Day15.count_pairs_multiples(65, 8921) == 309
   end
+
+  test "apply the instructions to the list" do
+    list = "abcde" |> String.graphemes
+    instructions = "s1,x3/4,pe/b" |> Day16.to_instructions
+    assert Day16.process_instructions(list, instructions) |> Enum.join == "baedc"
+  end
+
+  test "apply the instructions to the list twice" do
+    list = "abcde" |> String.graphemes
+    instructions = "s1,x3/4,pe/b" |> Day16.to_instructions
+    assert Day16.process_instructions(list, instructions, 2) |> elem(0) |> Enum.join == "ceadb"
+  end
 end
