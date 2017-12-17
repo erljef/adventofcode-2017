@@ -269,4 +269,8 @@ defmodule Adventofcode2017Test do
     instructions = "s1,x3/4,pe/b" |> Day16.to_instructions
     assert Day16.process_instructions(list, instructions, 2) |> elem(0) |> Enum.join == "ceadb"
   end
+
+  test "fill the circular buffer and find the value after the last insert" do
+    Day17.fill(3) == 638
+  end
 end

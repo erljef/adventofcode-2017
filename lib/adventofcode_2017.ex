@@ -4,7 +4,7 @@ defmodule Adventofcode2017 do
   """
 
   def solutions do
-    [day1(), day2(), day3(), day4(), day5(), day6(), day7(), day8(), day9(), day10(), day11(), day12(), day13(), day14(), day15(), day16()]
+    [day1(), day2(), day3(), day4(), day5(), day6(), day7(), day8(), day9(), day10(), day11(), day12(), day13(), day14(), day15(), day16(), day17()]
     |> Enum.with_index(1)
     |> Enum.each(fn {{first, second}, day} -> IO.puts(~s"Day #{day}: #{first}, #{second}") end)
   end
@@ -195,6 +195,13 @@ defmodule Adventofcode2017 do
     {
       ~s"Order: #{Day16.process_instructions(list, instructions) |> Enum.join}",
       ~s"Order 2: #{Day16.process_instructions(list, instructions, 1000000000) |> elem(0) |> Enum.join}"
+    }
+  end
+
+  def day17 do
+    {
+      ~s"Value after 2017: #{Day17.fill(382)}",
+      ~s"Value after 0: #{Day17.fill2(382)}"
     }
   end
 end
