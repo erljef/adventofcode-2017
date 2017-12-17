@@ -4,9 +4,27 @@ defmodule Adventofcode2017 do
   """
 
   def solutions do
-    [day1(), day2(), day3(), day4(), day5(), day6(), day7(), day8(), day9(), day10(), day11(), day12(), day13(), day14(), day15(), day16(), day17()]
+    [
+      &day1/0,
+      &day2/0,
+      &day3/0,
+      &day4/0,
+      &day5/0,
+      &day6/0,
+      &day7/0,
+      &day8/0,
+      &day9/0,
+      &day10/0,
+      &day11/0,
+      &day12/0,
+      &day13/0,
+      &day14/0,
+      &day15/0,
+      &day16/0,
+      &day17/0
+    ]
     |> Enum.with_index(1)
-    |> Enum.each(fn {{first, second}, day} -> IO.puts(~s"Day #{day}: #{first}, #{second}") end)
+    |> Enum.each(fn {f, day} -> {first, second} = f.(); IO.puts(~s"Day #{day}: #{first}, #{second}") end)
   end
 
   @doc """
