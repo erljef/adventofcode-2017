@@ -222,4 +222,12 @@ defmodule Adventofcode2017 do
       ~s"Value after 0: #{Day17.fill2(382)}"
     }
   end
+
+  def day18 do
+    instructions = Day18.read_file("day18_input.txt")
+    {
+      ~s"Recovered value: #{Day18.process(instructions)}",
+      ~s""
+    }
+  end
 end

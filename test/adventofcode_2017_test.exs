@@ -273,4 +273,21 @@ defmodule Adventofcode2017Test do
   test "fill the circular buffer and find the value after the last insert" do
     Day17.fill(3) == 638
   end
+
+  test "process the instructions - day 18" do
+    input = """
+      set a 1
+      add a 2
+      mul a a
+      mod a 5
+      snd a
+      set a 0
+      rcv a
+      jgz a -1
+      set a 1
+      jgz a -2
+    """ |> String.split("\n")
+    instructions = input |> Day18.parse_input
+    assert Day18.process(instructions) == 4
+  end
 end
