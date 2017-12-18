@@ -271,10 +271,10 @@ defmodule Adventofcode2017Test do
   end
 
   test "fill the circular buffer and find the value after the last insert" do
-    Day17.fill(3) == 638
+    assert Day17.fill(3) == 638
   end
 
-  test "process the instructions - day 18" do
+  test "find the value of the recovered frequency" do
     input = """
       set a 1
       add a 2
@@ -288,6 +288,20 @@ defmodule Adventofcode2017Test do
       jgz a -2
     """ |> String.split("\n")
     instructions = input |> Day18.parse_input
-    assert Day18.process(instructions) == 4
+    assert Day18.process(instructions, &Day18.apply_instruction_part1/2) == 4
+  end
+
+  test "find the number of messages sent by Process 1" do
+    input = """
+      snd 1
+      snd 2
+      snd p
+      rcv a
+      rcv b
+      rcv c
+      rcv d
+    """ |> String.split("\n")
+    instructions = input |> Day18.parse_input
+    assert Day18.run(instructions) == 3
   end
 end

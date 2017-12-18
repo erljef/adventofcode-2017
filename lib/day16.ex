@@ -34,10 +34,10 @@ defmodule Day16 do
 
   def process_instructions(list, instructions, loops) do
     Enum.reduce_while(
-      0..loops,
+      1..loops,
       {list, []},
       fn (i, {l, seen}) ->
-        if Enum.find(seen, &(&1 == l)) != nil, do: {:halt, {Enum.at(seen, rem(loops, i)), seen}},
+        if Enum.find(seen, &(&1 == l)) != nil, do: {:halt, {Enum.at(seen, rem(loops, i - 1)), seen}},
                                                else: {
                                                  :cont,
                                                  {process_instructions(l, instructions), seen ++ [l]}

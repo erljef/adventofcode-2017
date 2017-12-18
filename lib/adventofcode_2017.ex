@@ -224,10 +224,9 @@ defmodule Adventofcode2017 do
   end
 
   def day18 do
-    instructions = Day18.read_file("day18_input.txt")
     {
-      ~s"Recovered value: #{Day18.process(instructions)}",
-      ~s""
+      ~s"Recovered value: #{Day18.process_file("day18_input.txt")}",
+      ~s"Process 1 sent: #{Day18.run("day18_input.txt")}"
     }
   end
 end
