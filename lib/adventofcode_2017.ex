@@ -21,7 +21,9 @@ defmodule Adventofcode2017 do
       &day14/0,
       &day15/0,
       &day16/0,
-      &day17/0
+      &day17/0,
+      &day18/0,
+      &day19/0
     ]
     |> Enum.with_index(1)
     |> Enum.each(fn {f, day} -> {first, second} = f.(); IO.puts(~s"Day #{day}: #{first}, #{second}") end)
@@ -227,6 +229,15 @@ defmodule Adventofcode2017 do
     {
       ~s"Recovered value: #{Day18.process_file("day18_input.txt")}",
       ~s"Process 1 sent: #{Day18.run("day18_input.txt")}"
+    }
+  end
+
+  def day19 do
+    map = Day19.read_file("day19_input.txt")
+    {chars, steps} = Day19.traverse(map)
+    {
+      ~s"Characters: #{chars}",
+      ~s"Steps: #{steps}"
     }
   end
 end

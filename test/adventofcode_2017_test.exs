@@ -304,4 +304,19 @@ defmodule Adventofcode2017Test do
     instructions = input |> Day18.parse_input
     assert Day18.run(instructions) == 3
   end
+
+  test "traverse the path and find the letters and steps" do
+    input =
+      """
+           |
+           |  +--+
+           A  |  C
+       F---|----E|--+
+           |  |  |  D
+           +B-+  +--+
+      """
+      |> String.split("\n")
+      |> Day19.parse_input
+      assert Day19.traverse(input) == {["A", "B", "C", "D", "E", "F"], 38}
+  end
 end
