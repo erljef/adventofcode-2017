@@ -319,4 +319,31 @@ defmodule Adventofcode2017Test do
       |> Day19.parse_input
       assert Day19.traverse(input) == {["A", "B", "C", "D", "E", "F"], 38}
   end
+
+  test "find the closest particle after ticking" do
+    input =
+    """
+    p=<3,0,0>, v=<2,0,0>, a=<-1,0,0>
+    p=<4,0,0>, v=<0,0,0>, a=<-2,0,0>
+    """
+    |> String.split("\n")
+    |> Day20.parse_input
+
+    {_, index} = Day20.tick(input, 100)
+    assert index == 0
+  end
+
+  test "determine how many particles survive" do
+    input =
+    """
+    p=<-6,0,0>, v=<3,0,0>, a=<0,0,0>
+    p=<-4,0,0>, v=<2,0,0>, a=<0,0,0>
+    p=<-2,0,0>, v=<1,0,0>, a=<0,0,0>
+    p=<3,0,0>, v=<-1,0,0>, a=<0,0,0>
+    """
+    |> String.split("\n")
+    |> Day20.parse_input
+
+    assert Day20.particles_left(input, 10) == 1
+  end
 end

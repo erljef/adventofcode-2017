@@ -23,7 +23,8 @@ defmodule Adventofcode2017 do
       &day16/0,
       &day17/0,
       &day18/0,
-      &day19/0
+      &day19/0,
+      &day20/0
     ]
     |> Enum.with_index(1)
     |> Enum.each(fn {f, day} -> {first, second} = f.(); IO.puts(~s"Day #{day}: #{first}, #{second}") end)
@@ -238,6 +239,16 @@ defmodule Adventofcode2017 do
     {
       ~s"Characters: #{chars}",
       ~s"Steps: #{steps}"
+    }
+  end
+
+  def day20 do
+    particles = Day20.read_file("day20_input.txt")
+    Day20.particles_left(particles, 1000)
+    {_, index} = Day20.tick(particles, 1000)
+    {
+      ~s"Closest: #{index}",
+      ~s"Particles left: #{Day20.particles_left(particles, 1000)}"
     }
   end
 end
