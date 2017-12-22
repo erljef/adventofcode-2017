@@ -360,4 +360,28 @@ defmodule Adventofcode2017Test do
     pixels = Day21.iterate(Day21.initial(), rules, 2) |> Matrix.to_list |> List.flatten |> Enum.filter(&(&1 == "#")) |> Enum.count
     assert pixels == 12
   end
+
+  test "travel the grid and find the number of infections caused" do
+    input =
+      """
+      ..#
+      #..
+      ...
+      """
+      |> String.split("\n") |> Enum.filter(&String.length(&1) > 0) |> Day22.parse_input
+
+    assert Day22.caused_infection(input, 10000) == 5587
+  end
+
+  test "travel the grid again and find the number of infections caused" do
+    input =
+      """
+      ..#
+      #..
+      ...
+      """
+      |> String.split("\n") |> Enum.filter(&String.length(&1) > 0) |> Day22.parse_input
+
+    assert Day22.caused_infection_part2(input, 100) == 26
+  end
 end

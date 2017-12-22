@@ -25,7 +25,8 @@ defmodule Adventofcode2017 do
       &day18/0,
       &day19/0,
       &day20/0,
-      &day21/0
+      &day21/0,
+      &day22/0
     ]
     |> Enum.with_index(1)
     |> Enum.each(fn {f, day} -> {first, second} = f.(); IO.puts(~s"Day #{day}: #{first}, #{second}") end)
@@ -257,6 +258,14 @@ defmodule Adventofcode2017 do
     {
       ~s"Pixels after 5 iterations: #{Day21.pixels("day21_input.txt", 5)}",
       ~s"Pixels after 18 iterations: #{Day21.pixels("day21_input.txt", 18)}"
+    }
+  end
+
+  def day22 do
+    map = Day22.read_file("day22_input.txt")
+    {
+      ~s"Infections after 10000 steps: #{Day22.caused_infection(map, 10000)}",
+      ~s"Infections after 10000000 steps: #{Day22.caused_infection_part2(map, 10000000)}",
     }
   end
 end
