@@ -24,7 +24,8 @@ defmodule Adventofcode2017 do
       &day17/0,
       &day18/0,
       &day19/0,
-      &day20/0
+      &day20/0,
+      &day21/0
     ]
     |> Enum.with_index(1)
     |> Enum.each(fn {f, day} -> {first, second} = f.(); IO.puts(~s"Day #{day}: #{first}, #{second}") end)
@@ -249,6 +250,13 @@ defmodule Adventofcode2017 do
     {
       ~s"Closest: #{index}",
       ~s"Particles left: #{Day20.particles_left(particles, 1000)}"
+    }
+  end
+
+  def day21 do
+    {
+      ~s"Pixels after 5 iterations: #{Day21.pixels("day21_input.txt", 5)}",
+      ~s"Pixels after 18 iterations: #{Day21.pixels("day21_input.txt", 18)}"
     }
   end
 end

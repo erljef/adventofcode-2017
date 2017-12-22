@@ -346,4 +346,18 @@ defmodule Adventofcode2017Test do
 
     assert Day20.particles_left(input, 10) == 1
   end
+
+  test "iterate the rules and find how many pixels are enabled" do
+    use Tensor
+    rules =
+    """
+    ../.# => ##./#../...
+    .#./..#/### => #..#/..../..../#..#
+    """
+    |> String.split("\n")
+    |> Enum.filter(&String.length(&1) > 0)
+    |> Day21.parse_input
+    pixels = Day21.iterate(Day21.initial(), rules, 2) |> Matrix.to_list |> List.flatten |> Enum.filter(&(&1 == "#")) |> Enum.count
+    assert pixels == 12
+  end
 end
