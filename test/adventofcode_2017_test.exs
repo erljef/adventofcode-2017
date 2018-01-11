@@ -401,4 +401,21 @@ defmodule Adventofcode2017Test do
 
     assert Day24.strongest(pieces) == 31
   end
+
+  test "calculate the strength of the longest bridge" do
+    pieces = """
+        0/2
+        2/2
+        2/3
+        3/4
+        3/5
+        0/1
+        10/1
+        9/10
+    """
+    |> String.split
+    |> Day24.parse_input
+
+    assert Day24.longest(pieces) == 19
+  end
 end

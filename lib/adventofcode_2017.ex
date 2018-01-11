@@ -283,7 +283,7 @@ defmodule Adventofcode2017 do
     pieces = Day24.read_file("day24_input.txt")
     {
       ~s"strongest bridge strength: #{Day24.strongest(pieces)}",
-      ~s"",
+      ~s"longest bridge strength: #{Day24.longest(pieces)}",
     }
   end
 end
