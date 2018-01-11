@@ -27,7 +27,8 @@ defmodule Adventofcode2017 do
       &day20/0,
       &day21/0,
       &day22/0,
-      &day23/0
+      &day23/0,
+      &day24/0
     ]
     |> Enum.with_index(1)
     |> Enum.each(fn {f, day} -> {first, second} = f.(); IO.puts(~s"Day #{day}: #{first}, #{second}") end)
@@ -275,6 +276,14 @@ defmodule Adventofcode2017 do
     {
       ~s"mul is invoked #{invocations} times",
       ~s"h has the value: #{Day23.run_2()}",
+    }
+  end
+
+  def day24 do
+    pieces = Day24.read_file("day24_input.txt")
+    {
+      ~s"strongest bridge strength: #{Day24.strongest(pieces)}",
+      ~s"",
     }
   end
 end
