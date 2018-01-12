@@ -28,7 +28,8 @@ defmodule Adventofcode2017 do
       &day21/0,
       &day22/0,
       &day23/0,
-      &day24/0
+      &day24/0,
+      &day25/0
     ]
     |> Enum.with_index(1)
     |> Enum.each(fn {f, day} -> {first, second} = f.(); IO.puts(~s"Day #{day}: #{first}, #{second}") end)
@@ -284,6 +285,14 @@ defmodule Adventofcode2017 do
     {
       ~s"strongest bridge strength: #{Day24.strongest(pieces)}",
       ~s"longest bridge strength: #{Day24.longest(pieces)}",
+    }
+  end
+
+  def day25 do
+    input = Day25.read_file("day25_input.txt")
+    {
+      ~s"checksum: #{Day25.checksum(input)}",
+      ~s"",
     }
   end
 end

@@ -418,4 +418,9 @@ defmodule Adventofcode2017Test do
 
     assert Day24.longest(pieces) == 19
   end
+
+  test "calculate the checksum of the turing machine" do
+    input = Day25.read_file("test/day25_test_input.txt")
+    assert Day25.checksum(input) == 3
+  end
 end
